@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingComponent } from './home/landing/landing.component';
-import { NotFoundComponent } from './_common/shared/not-found/not-found.component';
 import { LoginComponent } from './login/login.component';
+import { NotFoundComponent } from './_common/shared/components/not-found/not-found.component';
 
 
 export const routes: Routes = [
