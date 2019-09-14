@@ -1,11 +1,19 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CoreComponent } from './core.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { RouterModule } from '@angular/router';
+
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule,
+    NgbModule
   ],
-  declarations: [CoreComponent]
+  declarations: [],
+  exports: [
+    RouterModule,
+    NgbModule
+  ]
 })
 export class CoreModule { }
