@@ -13,11 +13,11 @@ export const routes: Routes = [
     //     loadChildren: './modules/admin/admin.module#AdminModule',
     //     canActivate: [AppRouteGuard], data: { loginType: 'admin' }
     // },
-    // {
-    //     path: 'user',
-    //     loadChildren: './modules/employer/employer.module#EmployerModule',
-    //     canActivate: [AppRouteGuard], data: { loginType: 'employer' }
-    // },
+    {
+        path: 'user',
+        loadChildren: './_modules/user/user.module#UserModule',
+        //canActivate: [AppRouteGuard], data: { loginType: 'employer' }
+    },
     { path: '**', component: NotFoundComponent }
 ];
 

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoaderService } from './_common/core/services/loader-service.service';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,20 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'AngularStartUp';
+
+  title = 'Angular StartUp';
+  showLoader: boolean = false
+
+  constructor(private loaderService: LoaderService) {
+
+    this.loaderService.status.subscribe((val: boolean) => {
+      // var that = this
+      // setTimeout(function () {
+      //   that.showLoader = val;
+      // }, 0);
+      this.showLoader = val;
+
+    });
+  }
+
 }
