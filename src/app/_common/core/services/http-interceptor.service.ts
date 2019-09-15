@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { LoaderService } from './loader-service.service';
+import { LoaderService } from './loader.service';
 import { HttpRequest, HttpHandler, HttpEvent, HttpResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';

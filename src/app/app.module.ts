@@ -11,12 +11,14 @@ import { routes } from './app.routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './home/landing/landing.component';
+import { AboutComponent } from './home/about/about.component';
 
 @NgModule({
    declarations: [
       AppComponent,
       LoginComponent,
-      LandingComponent
+      LandingComponent,
+      AboutComponent
    ],
    imports: [
       BrowserModule,

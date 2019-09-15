@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -11,15 +12,15 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     CommonModule,
     RouterModule,
     FormsModule,
-    NgbModule
-    
+    NgbModule,
+    HttpClientModule
   ],
   declarations: [],
   exports: [
     RouterModule,
     FormsModule,
+    HttpClientModule,
     NgbModule
-    
   ]
 })
 export class CoreModule { }

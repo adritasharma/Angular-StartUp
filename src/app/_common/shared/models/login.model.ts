@@ -1,4 +1,4 @@
-export interface LoginRequest {
+export interface ILoginRequest {
     userName: string;
     password: string;
 }
@@ -11,6 +11,6 @@ export interface LoginResponse {
     lastName: string;
 }
 
-export class LoginRequest {
+export class LoginRequest implements ILoginRequest{
     constructor(public userName: string = '', public password: string = '') { }
 }
