@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LandingComponent } from './home/landing/landing.component';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './_common/shared/components/not-found/not-found.component';
+import { UserRouteGuard } from './_common/shared/guards/user-route-guard';
 
 
 export const routes: Routes = [
@@ -16,7 +17,7 @@ export const routes: Routes = [
     {
         path: 'user',
         loadChildren: './_modules/user/user.module#UserModule',
-        //canActivate: [AppRouteGuard], data: { loginType: 'employer' }
+        canActivate: [UserRouteGuard]
     },
     { path: '**', component: NotFoundComponent }
 ];

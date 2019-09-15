@@ -21,7 +21,8 @@ export class LoginService extends HttpService {
       userName: "adrita",
       token: "gsfsfbjsfsj",
       firstName: "Adrita",
-      lastName: "Sharma"
+      lastName: "Sharma",
+      userType: 0
     })
   }
 
