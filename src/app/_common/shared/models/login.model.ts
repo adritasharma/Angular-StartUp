@@ -7,6 +7,7 @@ export interface ILoginRequest {
 
 
 export interface ILoginResponse {
+    userId: number;
     userName: string;
     token: string;
     firstName: string;

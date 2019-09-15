@@ -6,6 +6,7 @@ import { userRoutes } from './user.routing.module';
 import { CoreModule } from 'src/app/_common/core/core.module';
 import { UserToursComponent } from './tours/user-tours/user-tours.component';
 import { SharedModule } from 'src/app/_common/shared/shared.module';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -17,6 +18,7 @@ import { SharedModule } from 'src/app/_common/shared/shared.module';
   ],
   declarations: [
     UserComponent,
+    ProfileComponent,
     UserToursComponent
   ]
 })

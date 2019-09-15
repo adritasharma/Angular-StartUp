@@ -1,3 +1,154 @@
-<p>
-  profile works!
-</p>
+<div class="row">
+  <div class="col-md-3">
+    <ul class="nav nav-tabs upper flex-column">
+      <li class="pointer">
+        <a data-toggle="tab" aria-expanded="true" class="nav-link tablinks active" (click)="currentTab = 'profile';"
+          style="border-radius: inherit;">My
+          Profile</a>
+      </li>
+      <li class="pointer">
+        <a data-toggle="tab" aria-expanded="true" class="nav-link tablinks" (click)="currentTab = 'password';"
+          style="border-radius: inherit;">Change
+          Password</a>
+      </li>
+    </ul>
+  </div>
+  <div class="col-md-9">
+    <div class="card" *ngIf="currentTab == 'profile'">
+      <div class="card-body">
+        <div class="col-md-3 mx-auto">
+          <div class="circle">
+            <span>{{userData.fullName | initials}}</span>
+          </div>
+        </div>
+        <div class="card">
+          <!-- <div class="card-body">
+            <form #userForm="ngForm" class="form-horizontal">
+              <div class="form-group row">
+                <label class="control-label col-md-3">
+                  First Name <span class="required-star"> *</span> :
+                </label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control" [(ngModel)]="userdetails.firstName" name="firstName"
+                    placeholder="First Name" required #firstName="ngModel">
+                  <field-validation [modelRef]="firstName" [fieldValue]="userdetails.firstName"></field-validation>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="control-label col-md-3">
+                  Middle Name :
+                </label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control" name="middleName" [(ngModel)]="userdetails.middleName"
+                    placeholder="Middle Name">
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="control-label col-md-3">
+                  Last Name <span class="required-star"> *</span> :
+                </label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control" name="lastName" [(ngModel)]="userdetails.lastName"
+                    placeholder="Last Name" required #lastName="ngModel">
+                  <field-validation [modelRef]="lastName" [fieldValue]="userdetails.lastName"></field-validation>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="control-label col-md-3">
+                  Phone Number <span class="required-star"> *</span> :
+                </label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control" name="phoneNumber" [(ngModel)]="userdetails.phoneNumber"
+                    placeholder="Phone Number" required #phoneNumber="ngModel" [pattern]="commonService.phonePattern">
+                  <field-validation [modelRef]="phoneNumber" [fieldValue]="userdetails.phoneNumber" [invalidMessage]="'Please Enter 10 Digit Number'"></field-validation>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="control-label col-md-3">
+                  Email Address <span class="required-star"> *</span> :
+                </label>
+                <div class="col-md-9">
+                  <input type="text" class="form-control" name="emailAddress" [(ngModel)]="userdetails.emailAddress"
+                    placeholder="Email Address" required #emailAddress="ngModel" [pattern]="commonService.emailPattern" disabled>
+                  <field-validation [modelRef]="emailAddress" [fieldValue]="userdetails.emailAddress"></field-validation>
+                </div>
+              </div>
+              <hr />
+              <div class="form-group row">
+                <label class="col-sm-3 control-label">Roles :</label>
+                <div class="col-sm-9 mutedText">
+                  <ul *ngFor="let item of allRoles">
+                    <li>{{item.roleName}} -
+                      <span *ngIf="item.roleProfile == 1"> Lead</span>
+                      <span *ngIf="item.roleProfile == 2"> Member</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <div class="row">
+                <app-display-error class="errorDiv"></app-display-error>
+              </div>
+              <div class="formBtnGroup">
+                <button-loader [disabled]="!userForm.valid" [buttonText]="'Update'" (click)="updateProfileDetails()" [spin]="spinLoader"></button-loader>
+              </div>
+            </form>
+          </div> -->
+        </div>
+
+      </div>
+    </div>
+    <div class="card" *ngIf="currentTab == 'password'">
+      <!-- <div class="card-body">
+        <h5 class="themeColor">Change Password</h5>
+        <p>Your password should be atleast 6 characters long</p>
+        <div class="card">
+          <div class="card-body">
+            <form #passwordForm="ngForm" class="form-horizontal">
+              <div class="form-group row">
+                <label class="control-label col-md-3">
+                  Current Password <span class="required-star"> *</span> :
+                </label>
+                <div class="col-md-9">
+                  <input type="password" class="form-control" name="currentPassword" [(ngModel)]="passwordDetails.currentPassword"
+                    placeholder="Current Password" required #currentPassword="ngModel" minlength="6">
+                  <field-validation [modelRef]="currentPassword" [invalidMessage]="'Minimum 6 characters'" [fieldValue]="passwordDetails.currentPassword"></field-validation>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="control-label col-md-3">
+                  New Password <span class="required-star"> *</span> :
+                </label>
+                <div class="col-md-9">
+                  <input type="password" class="form-control" name="newPassword" [(ngModel)]="passwordDetails.newPassword"
+                    placeholder="New Password" required #newPassword="ngModel" minlength="6" (ngModelChange)="matchPassword()">
+                  <field-validation [modelRef]="newPassword" [invalidMessage]="'Minimum 6 characters'" [fieldValue]="passwordDetails.newPassword"></field-validation>
+                </div>
+              </div>
+              <div class="form-group row">
+                <label class="control-label col-md-3">
+                  Confirm Password <span class="required-star"> *</span> :
+
+                </label>
+                <div class="col-md-9">
+                  <input type="password" class="form-control" name="confirmPassword" [(ngModel)]="passwordDetails.confirmPassword"
+                    placeholder="Confirm Password" required #confirmPassword="ngModel" (ngModelChange)="matchPassword()">
+                  <field-validation [modelRef]="confirmPassword" [fieldValue]="passwordDetails.confirmPassword"></field-validation>
+                  <div class="invalidMessage" *ngIf="passwordNotMatch">
+                    Password and Confirm Password doesn't
+                    Match
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div class="row">
+              <app-display-error class="errorDiv"></app-display-error>
+            </div>
+            <div class="formBtnGroup">
+              <button-loader [disabled]="!passwordForm.valid" [buttonText]="'Update'" (click)="passwordChange()" [spin]="spinLoader"></button-loader>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>

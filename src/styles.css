@@ -1,3 +1,14 @@
+.circle {
+    background-color: #ccc;
+    border-radius: 50%;
+    text-align: center;
+    width: 120px;
+    height: 120px;
+    padding-top: 30px;
+    font-size: 42px;
+    color: #381653;
+}
+
 .loader {
     margin-left: 45%;
     margin-top: 13%;
@@ -10,6 +21,11 @@
     height: 100%;
     z-index: 99;
 }
+
 .loader-icon {
     font-size: 50px;
+}
+
+.pointer {
+    cursor: pointer;
 }

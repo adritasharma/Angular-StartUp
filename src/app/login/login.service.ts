@@ -18,6 +18,7 @@ export class LoginService extends HttpService {
     // return this.post("http://www.mocky.io/v2/5d7dcdfc2f00000834fedf90",loginData)
 
     return of({
+      userId:1,
       userName: "adrita",
       token: "gsfsfbjsfsj",
       firstName: "Adrita",

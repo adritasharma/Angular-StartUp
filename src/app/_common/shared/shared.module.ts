@@ -4,6 +4,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { CoreModule } from '../core/core.module';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { ListToursComponent } from './components/list-tours/list-tours.component';
+import { InitialsPipe } from './pipes/initials.pipe';
 
 @NgModule({
   imports: [
@@ -13,12 +14,14 @@ import { ListToursComponent } from './components/list-tours/list-tours.component
   declarations: [
     NavbarComponent,
     NotFoundComponent,
-    ListToursComponent
+    ListToursComponent,
+    InitialsPipe
   ],
   exports: [
     NavbarComponent,
     NotFoundComponent,
-    ListToursComponent
+    ListToursComponent,
+    InitialsPipe
   ]
 })
 export class SharedModule { }
