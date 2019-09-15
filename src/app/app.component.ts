@@ -14,11 +14,10 @@ export class AppComponent {
   constructor(private loaderService: LoaderService) {
 
     this.loaderService.status.subscribe((val: boolean) => {
-      // var that = this
-      // setTimeout(function () {
-      //   that.showLoader = val;
-      // }, 0);
-      this.showLoader = val;
+      var that = this
+      setTimeout(function () {
+        that.showLoader = val;
+      }, 0);
 
     });
   }

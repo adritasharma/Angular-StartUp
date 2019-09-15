@@ -5,13 +5,15 @@ import { RouterModule } from '@angular/router';
 import { userRoutes } from './user.routing.module';
 import { CoreModule } from 'src/app/_common/core/core.module';
 import { UserToursComponent } from './tours/user-tours/user-tours.component';
+import { SharedModule } from 'src/app/_common/shared/shared.module';
 
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(userRoutes),
-    CoreModule
+    CoreModule,
+    SharedModule
   ],
   declarations: [
     UserComponent,

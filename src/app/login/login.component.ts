@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginRequest } from '../_common/shared/models/login.model';
+import { LoginRequest, ILoginResponse } from '../_common/shared/models/login.model';
 import { Router } from '@angular/router';
+import { SessionService } from '../_common/shared/services/session.service';
+import { LoginService } from './login.service';
 
 @Component({
   selector: 'app-login',
@@ -9,16 +11,22 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private _router: Router, private _session: SessionService, private _loginService: LoginService) { }
 
-  userdetails:LoginRequest = new LoginRequest
+  userdetails: LoginRequest = new LoginRequest
 
 
   ngOnInit() {
+    this._session.logOut()
   }
 
   login() {
-    this.router.navigate(['user'])
+
+    this._loginService.login(this.userdetails).subscribe(resp => {
+      let userResponse: ILoginResponse = resp
+      this._session.login(userResponse)
+      this._router.navigate(['user'])
+    })
   }
 
 }

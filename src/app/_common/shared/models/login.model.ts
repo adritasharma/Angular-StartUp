@@ -4,7 +4,7 @@ export interface ILoginRequest {
 }
 
 
-export interface LoginResponse {
+export interface ILoginResponse {
     userName: string;
     token: string;
     firstName: string;

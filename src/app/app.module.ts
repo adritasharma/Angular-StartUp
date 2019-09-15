@@ -13,6 +13,9 @@ import { LoginComponent } from './login/login.component';
 import { LandingComponent } from './home/landing/landing.component';
 import { AboutComponent } from './home/about/about.component';
 
+import { HttpInterceptorService } from './_common/core/services/http-interceptor.service';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+
 @NgModule({
    declarations: [
       AppComponent,
@@ -26,7 +29,13 @@ import { AboutComponent } from './home/about/about.component';
       SharedModule,
       RouterModule.forRoot(routes),
    ],
-   providers: [],
+   providers: [
+      {
+         provide: HTTP_INTERCEPTORS,
+         useClass: HttpInterceptorService,
+         multi: true
+      }
+   ],
    bootstrap: [
       AppComponent
    ],
