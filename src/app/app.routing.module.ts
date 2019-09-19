@@ -9,11 +9,11 @@ import { UserRouteGuard } from './_common/shared/guards/user-route-guard';
 export const routes: Routes = [
     { path: '', component: LandingComponent },
     { path: 'login', component: LoginComponent },
-    // {
-    //     path: 'admin',
-    //     loadChildren: './modules/admin/admin.module#AdminModule',
-    //     canActivate: [AppRouteGuard], data: { loginType: 'admin' }
-    // },
+    {
+        path: 'admin',
+        loadChildren: './_modules/admin/admin.module#AdminModule',
+      //  canActivate: [AppRouteGuard], data: { loginType: 'admin' }
+    },
     {
         path: 'user',
         loadChildren: './_modules/user/user.module#UserModule',
